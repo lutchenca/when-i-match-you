@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { urlencoded } = require("express");
 const mongoose = require("mongoose");
 const express = require("express");
@@ -20,8 +21,8 @@ app.get("/", (req, res) => {
   res.json({ message: "oi!" });
 });
 
-const DB_USER = "lutchenca";
-const DB_PASSWORD = encodeURIComponent("w4bfNwaE6F2Fsz");
+const DB_USER = process.env.DB_USER;
+const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD);
 
 mongoose
   .connect(
